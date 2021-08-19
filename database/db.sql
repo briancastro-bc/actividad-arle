@@ -21,5 +21,5 @@ CREATE TABLE anuncios_categorias(
     categoriasUid INT NULL
 );
 
-ALTER TABLE anuncios_categorias ADD PRIMARY KEY('anunciosUid') REFERENCES anuncios(uid);
-ALTER TABLE anuncios_categorias ADD PRIMARY KEY('categoriasUid') REFERENCES categorias(uid);
+ALTER TABLE anuncios_categorias ADD FOREIGN KEY(anunciosUid) REFERENCES anuncios(uid);
+ALTER TABLE anuncios_categorias ADD FOREIGN KEY(categoriasUid) REFERENCES categorias(uid);
