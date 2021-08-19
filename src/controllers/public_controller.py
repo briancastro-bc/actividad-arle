@@ -5,9 +5,12 @@ class IndexController(MethodView):
     def get(self):
         return "Hello World!"
 
-class ContactController(MethodView):
+class AnnouncementsController(MethodView):
     def get(self):
-        return "Contact controller is works!"
+        with mysql.cursor() as cur:
+            title = []
+            description = []
 
+            
     def post(self):
         pass
