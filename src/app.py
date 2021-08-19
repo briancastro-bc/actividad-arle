@@ -3,10 +3,9 @@ from src.routes.public_routes import *
 
 #Instancia de flask.
 app = Flask(__name__)
-
-@app.route('/')
-def login():
-    return render_template('index.html')
+app.config.from_mapping(
+    SECRET_KEY="ASBDNnlajkbdasdjvbOYIVASDJVHA"
+)
 
 app.add_url_rule(routes['index_route'], view_func=routes['index_controller'])
 app.add_url_rule(routes['announcements_route'], view_func=routes['announcements_controller'])

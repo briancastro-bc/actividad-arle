@@ -173,7 +173,7 @@
 
 								// Page Down, Space.
 									case 34:
-									case 32:
+									//case 32:
 										$main.scrollLeft($main.scrollLeft() + $window.width() - 100);
 										scrolled = true;
 										break;

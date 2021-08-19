@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %} Inicio {% endblock %}
+{% block content %}
+<div id="wrapper">
+    <section id="main">
+        <div class="items">
+            <div class="item intro span-2">
+                <h1>ANUNCIOS DE COMIDA</h1>
+                <p>
+                    Encuentra   <br />
+                    tu mejor plato
+                </p>
+            </div>
+            {% for announcement in announcements %}
+                <article class="item thumb span-2">
+                    <h2>
+                        {{ announcement.0 }}
+                        <p>{{ announcement.1 }}</p>
+                    </h2>
+                    <a href="{{ announcement.3 }}" class="image" >
+                        <img loading="lazy" src="{{ announcement.3 }}" alt="{{ announcement.0 }}">
+                    </a>
+                </article>
+            {% else %}
+                <article class="item thumb span-2">
+                    <h2>
+                        Sin anuncios
+                        <p>No tenemos anuncios para ti</p>
+                    </h2>
+                    <a href="{{ url_for('static', filename='images/no-image.jpg') }}" class="image" >
+                        <img loading="lazy" src="{{ url_for('static', filename='images/no-image.jpg') }}" alt="No hay imagen">
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+        <div class="items">
+            {% for categorie in categories %}
+                <article class="item thumb span-3">
+                    <h2>{{ categorie.0 }}</h2>
+                    <a href="{{ url_for('static', filename='images/fulls/01.jpg') }}" class="image">
+                        <img src="{{ url_for('static', filename='images/fulls/01.jpg') }}" alt="{{ categorie.0 }}">
+                    </a>
+                </article>
+            {% else %}
+                <article class="item thumb span-3">
+                    <h2>No hay categorias</h2>
+                    <a href="{{ url_for('static', filename='images/no-image.jpg') }}" class="image">
+                        <img src="{{ url_for('static', filename='images/no-image.jpg') }}" alt="No hay imagen">
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+    <section id="footer">
+        <section>
+            <p>¿Quieres publicar tu anuncio?</a>. Contactanos en nuestras redes sociales<br>Tu anuncio podria ser el
+                siguiente ;)</p>
+        </section>
+        <section>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; BCCJ</li>
+                <li>Design: <a href="http://html5up.net">JL</a></li>
+            </ul>
+        </section>
+    </section>
+</div>
+{% endblock %}
