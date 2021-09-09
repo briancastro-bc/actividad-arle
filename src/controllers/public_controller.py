@@ -6,6 +6,8 @@ from src.db import *
 class IndexController(MethodView):
     def get(self):
         with mysql.cursor() as cur:
+            announcements = []
+            categories = []
             try:
                 cur.execute("SELECT titulo, descripcion, fechaLimite, imagen FROM anuncios")
                 announcements = cur.fetchall()
